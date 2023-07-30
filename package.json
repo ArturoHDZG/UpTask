@@ -24,7 +24,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
-    "prettier": "^3.0.0",
+    "prettier": "^2.8.8",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
   }
