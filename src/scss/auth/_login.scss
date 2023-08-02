@@ -1,7 +1,7 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.crear {
+.login {
   .uptask {
     background: linear-gradient(to right, v.$cyan 0%, lighten(v.$cyan, 30%) 100%);
     background-clip: text;
@@ -11,5 +11,11 @@
     text-align: center;
 
     @include m.tablet { font-size: 10rem; }
+  }
+
+  input[type="submit"] { @include m.boton (v.$cyan, v.$blanco); }
+
+  .acciones {
+    a { color: v.$cyan; }
   }
 }
