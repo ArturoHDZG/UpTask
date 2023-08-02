@@ -1,0 +1,15 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.crear {
+  .uptask {
+    background: linear-gradient(to right, v.$cyan 0%, lighten(v.$cyan, 30%) 100%);
+    background-clip: text;
+    color: transparent;
+    font-size: 7rem;
+    margin-top: 5rem;
+    text-align: center;
+
+    @include m.tablet { font-size: 10rem; }
+  }
+}
