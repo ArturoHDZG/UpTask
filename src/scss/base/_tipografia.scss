@@ -17,3 +17,13 @@ p {
   color: v.$gris;
   line-height: 1.8;
 }
+
+.tagline {
+  color: v.$negro;
+  font-family: v.$fuente_headings;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.desc-pagina { text-align: center; }
