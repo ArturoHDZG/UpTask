@@ -40,6 +40,11 @@
   <?php echo $contenido; ?>
   <?php echo $script ?? ''; ?>
 
+  <footer>
+    <p class="copyright">UpTask <?php echo date('Y'); ?>&copy;</p>
+    <p class="copyright">Designed by Arturo Hernández Garza</p>
+  </footer>
+
 </body>
 
 </html>
