@@ -43,9 +43,21 @@
   }
 }
 
-/** Botones **/
+/** CSS Grid **/
 @mixin grid($columnas, $espaciado ) {
   display: grid;
   gap: $espaciado;
   grid-template-columns: repeat($columnas, 1fr);
+}
+
+/** UpTask Logo **/
+@mixin upTaskLogo($color) {
+  background: linear-gradient(to right, $color 0%, lighten($color, 30%) 100%);
+  background-clip: text;
+  color: transparent;
+  font-size: 7rem;
+  margin-top: 5rem;
+  text-align: center;
+
+  @include tablet { font-size: 10rem; }
 }
