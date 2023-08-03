@@ -33,13 +33,15 @@ class LoginController
     ]);
   }
 
-  public static function forget()
+  public static function forget(Router $router)
   {
-    echo 'Página Olvidé Contraseña';
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       echo 'Olvidé Contraseña POST';
     }
+
+    $router->render('auth/forget', [
+      'title' => 'Recuperar Acceso a la Cuenta'
+    ]);
   }
 
   public static function restore()

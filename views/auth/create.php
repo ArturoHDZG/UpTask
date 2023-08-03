@@ -2,7 +2,7 @@
   <?php include_once __DIR__ . '/../templates/title.php' ?>
 
   <div class="contenedor-sm">
-    <p class="desc-pagina">Crea una cuenta en UpTask</p>
+    <p class="desc-pagina">Crea una Cuenta en UpTask</p>
     <form method="POST" action="/" class="formulario">
       <div class="campo">
         <label for="name">Nombre</label>
