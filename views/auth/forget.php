@@ -3,7 +3,7 @@
 
   <div class="contenedor-sm">
     <p class="desc-pagina">Escribe el Email con el que te Registraste</p>
-    <form method="POST" action="/" class="formulario">
+    <form method="POST" action="/forget" class="formulario">
       <div class="campo">
         <label for="email">Email</label>
         <input
@@ -14,7 +14,7 @@
         >
       </div>
 
-      <input class="boton" type="submit" value="Iniciar Sesión">
+      <input class="boton" type="submit" value="Recuperar Contraseña">
 
     </form>
     <div class="acciones">
