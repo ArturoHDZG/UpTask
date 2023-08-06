@@ -44,13 +44,15 @@ class LoginController
     ]);
   }
 
-  public static function restore()
+  public static function restore(Router $router)
   {
-    echo 'Página Restaurar Contraseña';
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       echo 'Restaurar Contraseña POST';
     }
+
+    $router->render('auth/restore', [
+      'title' => 'Restablece Contraseña'
+    ]);
   }
 
   public static function message()
