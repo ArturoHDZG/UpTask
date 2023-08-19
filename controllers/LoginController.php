@@ -55,13 +55,17 @@ class LoginController
     ]);
   }
 
-  public static function message()
+  public static function message(Router $router)
   {
-    echo 'Página Mensaje';
+    $router->render('auth/message', [
+      'title' => 'Cuenta Creada con Éxito'
+    ]);
   }
 
-  public static function confirm()
+  public static function confirm(Router $router)
   {
-    echo 'Página Mensaje Confirmación';
+    $router->render('auth/confirm', [
+      'title' => 'Cuenta Creada con Éxito'
+    ]);
   }
 }
