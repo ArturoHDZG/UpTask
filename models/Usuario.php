@@ -13,6 +13,7 @@ class Usuario extends ActiveRecord
   public $nombre;
   public $email;
   public $password;
+  public $password1;
   public $token;
   public $confirmado;
 
@@ -22,6 +23,7 @@ class Usuario extends ActiveRecord
     $this->nombre = $args['nombre'] ?? '';
     $this->email = $args['email'] ?? '';
     $this->password = $args['password'] ?? '';
+    $this->password1 = $args['password1'] ?? '';
     $this->token = $args['token'] ?? '';
     $this->confirmado = $args['confirmado'] ?? '';
   }
@@ -35,6 +37,14 @@ class Usuario extends ActiveRecord
 
     if(!$this->email) {
       self::$alertas['error'][] = 'Email Requerido';
+    }
+
+    if(!$this->password) {
+      self::$alertas['error'][] = 'Contraseña Requerida';
+    } elseif(strlen($this->password) < 6) {
+      self::$alertas['error'][] = 'La Contraseña debe contener al menos 6 caracteres';
+    } elseif($this->password !== $this->password1) {
+      self::$alertas['error'][] = 'Los password no coinciden';
     }
 
     return self::$alertas;
