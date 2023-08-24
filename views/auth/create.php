@@ -9,10 +9,10 @@
 
     <form method="POST" action="/create" class="formulario">
       <div class="campo">
-        <label for="name">Nombre</label>
+        <label for="nombre">Nombre</label>
         <input
-          id="name"
-          name="name"
+          id="nombre"
+          name="nombre"
           type="text"
           placeholder="John Smith"
           value="<?php echo $usuario->nombre; ?>"
