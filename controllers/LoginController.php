@@ -2,8 +2,9 @@
 
 namespace Controllers;
 
-use Model\Usuario;
 use MVC\Router;
+use Classes\Email;
+use Model\Usuario;
 
 class LoginController
 {
@@ -42,6 +43,8 @@ class LoginController
           $usuario->hashPassword();
           $usuario->crearToken();
           unset($usuario->password1);
+          $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+          $email-> sendEmail();
           $resultado = $usuario->guardar();
 
           if($resultado){
