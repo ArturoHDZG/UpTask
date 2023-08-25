@@ -63,12 +63,18 @@ class LoginController
 
   public static function forget(Router $router)
   {
+    $alertas = [];
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      echo 'Olvidé Contraseña POST';
+      $usuario = new Usuario($_POST);
+      $alertas = $usuario->validarEmail();
+
+      if(empty($alertas)) {}
     }
 
     $router->render('auth/forget', [
-      'title' => 'Recuperar Acceso a la Cuenta'
+      'title' => 'Recuperar Acceso a la Cuenta',
+      'alertas' => $alertas
     ]);
   }
 
@@ -105,7 +111,7 @@ class LoginController
     } else {
       unset($usuario->password1);
       $usuario->confirmado = 1;
-      $usuario->token = null;
+      $usuario->token = "";
       $usuario->guardar();
       Usuario::setAlerta('success', 'Cuenta Confirmada con Éxito');
     }

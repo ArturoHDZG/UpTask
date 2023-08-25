@@ -3,6 +3,9 @@
 
   <div class="contenedor-sm">
     <p class="desc-pagina">Escribe el Email con el que te Registraste</p>
+
+    <?php include_once __DIR__ . '/../templates/alerts.php' ?>
+
     <form method="POST" action="/forget" class="formulario">
       <div class="campo">
         <label for="email">Email</label>

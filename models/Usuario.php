@@ -44,7 +44,18 @@ class Usuario extends ActiveRecord
     } elseif(strlen($this->password) < 6) {
       self::$alertas['error'][] = 'La Contraseña debe contener al menos 6 caracteres';
     } elseif($this->password !== $this->password1) {
-      self::$alertas['error'][] = 'Los password no coinciden';
+      self::$alertas['error'][] = 'Las contraseñas no coinciden';
+    }
+
+    return self::$alertas;
+  }
+
+  // Email Validation
+  public function validarEmail() {
+    if(!$this->email) {
+      self::$alertas['error'][] = 'Email Requerido';
+    } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+      self::$alertas['error'][] = 'Email No Valido';
     }
 
     return self::$alertas;
