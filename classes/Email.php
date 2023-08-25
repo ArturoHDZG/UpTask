@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class Email
 {
-  public $email;
-  public $nombre;
-  public $token;
+  protected $email;
+  protected $nombre;
+  protected $token;
 
   public function __construct($email, $nombre, $token)
   {
@@ -30,18 +30,17 @@ class Email
 
     $mail->setFrom('accounts@uptask.com');
     $mail->addAddress('admin@uptask.com', 'uptask.com');
-    $mail->Subject = 'Activate Your Account';
+    $mail->Subject = 'Activa tu cuenta';
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
 
     // Body HTML Message
     $content = "<html>";
-    $content .= "<p><strong>Hi " . $this->nombre . "</strong></p>";
-    $content .= "<p>Confirm your email address by clicking the following link</p>";
-    $content .= "<p>to activate your Account:</p>";
-    $content .= "<p>Follow next link:
-     <a href='" . $_ENV['APP_URL'] . "/confirm?token=" . $this->token . "'>Confirm Account</a></p>";
-     $content .= "<p>If you did not request registration for this account, please ignore this message.</p>";
+    $content .= "<p><strong>Hola " . $this->nombre . "</strong></p>";
+    $content .= "<p>Confirma el registro de tu cuenta en UpTask</p>";
+    $content .= "<p>haciendo click en el siguiente enlace:
+     <a href='" . $_ENV['APP_URL'] . "/confirm?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
+     $content .= "<p>Si no has realizado este registro, por favor ignora este mensaje</p>";
 
     $mail->Body = $content;
     $mail->send();
@@ -59,17 +58,17 @@ class Email
 
     $mail->setFrom('accounts@uptask.com');
     $mail->addAddress('admin@uptask.com', 'uptask.com');
-    $mail->Subject = 'Restore Password';
+    $mail->Subject = 'Restaurar Contraseña';
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
 
     // Body HTML Message
     $content = "<html>";
-    $content .= "<p><strong>Hi " . $this->nombre . "</strong></p>";
-    $content .= "<p>Restore your password by clicking the following link</p>";
-    $content .= "<p>Follow next link:
-     <a href='" . $_ENV['APP_URL'] . "/restore?token=" . $this->token . "'>Restore Password</a></p>";
-     $content .= "<p>If you did not request this action, please ignore this message.</p>";
+    $content .= "<p><strong>Hola " . $this->nombre . "</strong></p>";
+    $content .= "<p>Para recuperar el acceso a tu cuenta has click</p>";
+    $content .= "<p>En el siguiente enlace:
+     <a href='" . $_ENV['APP_URL'] . "/restore?token=" . $this->token . "'>Restaurar Contraseña</a></p>";
+     $content .= "<p>Si no has solicitado este servicio, por favor ignora este mensaje</p>";
 
     $mail->Body = $content;
     $mail->send();
