@@ -65,7 +65,7 @@ class Email
     // Body HTML Message
     $content = "<html>";
     $content .= "<p><strong>Hola " . $this->nombre . "</strong></p>";
-    $content .= "<p>Para recuperar el acceso a tu cuenta has click</p>";
+    $content .= "<p>Para recuperar el acceso a tu cuenta en Uptask has click</p>";
     $content .= "<p>En el siguiente enlace:
      <a href='" . $_ENV['APP_URL'] . "/restore?token=" . $this->token . "'>Restaurar Contraseña</a></p>";
      $content .= "<p>Si no has solicitado este servicio, por favor ignora este mensaje</p>";

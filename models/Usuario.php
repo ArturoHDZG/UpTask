@@ -51,7 +51,8 @@ class Usuario extends ActiveRecord
   }
 
   // Email Validation
-  public function validarEmail() {
+  public function validarEmail()
+  {
     if(!$this->email) {
       self::$alertas['error'][] = 'Email Requerido';
     } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
@@ -61,13 +62,27 @@ class Usuario extends ActiveRecord
     return self::$alertas;
   }
 
+  // Password Validation
+  public function validarPassword()
+  {
+    if(!$this->password) {
+      self::$alertas['error'][] = 'Contraseña Requerida';
+    } elseif(strlen($this->password) < 6) {
+      self::$alertas['error'][] = 'La Contraseña debe contener al menos 6 caracteres';
+    }
+
+    return self::$alertas;
+  }
+
   // Hash Password
-  public function hashPassword() {
+  public function hashPassword()
+  {
     $this->password = password_hash($this->password, PASSWORD_BCRYPT);
   }
 
   // Generate Confirmation Token
-  public function crearToken() {
+  public function crearToken()
+  {
     $this->token = uniqid();
   }
 }

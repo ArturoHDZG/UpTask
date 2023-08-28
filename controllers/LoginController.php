@@ -69,8 +69,23 @@ class LoginController
       $usuario = new Usuario($_POST);
       $alertas = $usuario->validarEmail();
 
-      if(empty($alertas)) {}
+      if(empty($alertas)) {
+        $usuario = Usuario::where('email', $usuario->email);
+      }
+
+      if($usuario && $usuario->confirmado) {
+        unset($usuario->password1);
+        $usuario->crearToken();
+        $usuario->guardar();
+        $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+        $email-> sendInstructions();
+        Usuario::setAlerta('success', 'Se han Enviado Instrucciones al Correo Registrado para Recuperar la Contraseña');
+      } else {
+        Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
+      }
     }
+
+    $alertas = Usuario::getAlertas();
 
     $router->render('auth/forget', [
       'title' => 'Recuperar Acceso a la Cuenta',
@@ -80,12 +95,42 @@ class LoginController
 
   public static function restore(Router $router)
   {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      echo 'Restaurar Contraseña POST';
+    $token = s($_GET['token']);
+    $mostrar = true;
+
+    if (!$token) {
+      header("Location:/");
     }
 
+    $usuario = Usuario::where('token', $token);
+
+    if (empty($usuario)) {
+      Usuario::setAlerta('error', 'Token Inválido');
+      $mostrar = false;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      unset($usuario->password1);
+      $usuario->sincronizar($_POST);
+      $alertas = $usuario->validarPassword();
+
+      if (empty($alertas)) {
+        $usuario->hashPassword();
+        $usuario->token = "";
+        $resultado = $usuario->guardar();
+
+        if ($resultado) {
+          header("Location:/");
+        }
+      }
+    }
+
+    $alertas = Usuario::getAlertas();
+
     $router->render('auth/restore', [
-      'title' => 'Restablece Contraseña'
+      'title' => 'Restablece la Contraseña',
+      'alertas' => $alertas,
+      'mostrar' => $mostrar
     ]);
   }
 
