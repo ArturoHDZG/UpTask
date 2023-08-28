@@ -28,6 +28,24 @@ class Usuario extends ActiveRecord
     $this->confirmado = $args['confirmado'] ?? 0;
   }
 
+  // LLogin Validation
+  public function validarLogin()
+  {
+    if(!$this->email) {
+      self::$alertas['error'][] = 'Email Requerido';
+    } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+      self::$alertas['error'][] = 'Email No Valido';
+    }
+
+    if(!$this->password) {
+      self::$alertas['error'][] = 'Contraseña Requerida';
+    } elseif(strlen($this->password) < 6) {
+      self::$alertas['error'][] = 'La Contraseña debe contener al menos 6 caracteres';
+    }
+
+    return self::$alertas;
+  }
+
   // New Accounts Validation
   public function validarNuevaCuenta()
   {

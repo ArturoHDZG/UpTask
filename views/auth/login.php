@@ -3,6 +3,9 @@
 
   <div class="contenedor-sm">
     <p class="desc-pagina">Iniciar Sesión</p>
+
+    <?php include_once __DIR__ . '/../templates/alerts.php' ?>
+
     <form method="POST" action="/" class="formulario">
       <div class="campo">
         <label for="email">Email</label>
