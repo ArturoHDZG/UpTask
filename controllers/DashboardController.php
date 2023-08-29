@@ -15,4 +15,24 @@ class DashboardController
       'title' => 'Proyectos',
     ]);
   }
+
+  public static function new(Router $router)
+  {
+    session_start();
+    isAuth();
+
+    $router->render('dashboard/new', [
+      'title' => 'Nuevo Proyecto',
+    ]);
+  }
+
+  public static function profile(Router $router)
+  {
+    session_start();
+    isAuth();
+
+    $router->render('dashboard/profile', [
+      'title' => 'Perfil',
+    ]);
+  }
 }
