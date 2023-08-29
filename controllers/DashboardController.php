@@ -12,7 +12,7 @@ class DashboardController
     isAuth();
 
     $router->render('dashboard/index', [
-      'title' => 'Dashboard',
+      'title' => 'Proyectos',
     ]);
   }
 }
