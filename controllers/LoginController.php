@@ -48,7 +48,9 @@ class LoginController
 
   public static function logout()
   {
-    echo 'Página Logout';
+    session_start();
+    $_SESSION = [];
+    header("Location: /");
   }
 
   public static function create(Router $router)
