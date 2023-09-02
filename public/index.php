@@ -32,6 +32,7 @@ $router->get('/confirm', [LoginController::class, 'confirm']);
 // Dashboard
 $router->get('/dashboard', [DashboardController::class, 'index']);
 $router->get('/new', [DashboardController::class, 'new']);
+$router->post('/new', [DashboardController::class, 'new']);
 $router->get('/profile', [DashboardController::class, 'profile']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
