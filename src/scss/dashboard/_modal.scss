@@ -11,15 +11,43 @@
 
   .formulario {
     background-color: v.$blanco;
+    border-radius: 1rem;
     margin: 0 auto;
     max-width: 60rem;
     padding: 2rem;
     transform: translateY(-30rem);
+    transition-property: all;
+    transition-duration: 600ms;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+
+    legend {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .opciones {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit-nueva-tarea { @include m.boton(v.$indigo, v.$blanco); }
+
+    .cerrar-modal { @include m.boton(v.$naranja, v.$blanco); }
 
     &.animar {
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+      opacity: 1;
+    }
+
+    &.cerrar {
+      transform: translateY(-200%);
+      opacity: 0;
     }
   }
 }
