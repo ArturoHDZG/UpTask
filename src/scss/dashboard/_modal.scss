@@ -29,6 +29,11 @@
       text-align: center;
     }
 
+    input[type="text"] {
+      border: .1rem solid v.$gris;
+      border-radius: .5rem;
+    }
+
     .opciones {
       display: flex;
       justify-content: space-between;

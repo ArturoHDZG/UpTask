@@ -28,6 +28,7 @@
 
     modal.addEventListener('click', function (e) {
       e.preventDefault();
+
       if (e.target.classList.contains('cerrar-modal')) {
         const formulario = document.querySelector('.formulario');
         formulario.classList.add('cerrar');
@@ -35,8 +36,43 @@
           modal.remove();
         }, 500);
       }
+
+      if (e.target.classList.contains('submit-nueva-tarea')) {
+        submitFormularioNuevaTarea();
+      }
     });
 
-    document.querySelector('body').appendChild(modal);
+    document.querySelector('.dashboard').appendChild(modal);
+  }
+
+  function submitFormularioNuevaTarea() {
+    const tarea = document.querySelector('#tarea').value.trim();
+
+    if (tarea === '') {
+      mostrarAlerta('Nombre de Tarea Requerido', 'error', document.querySelector('.formulario legend'));
+    }
+
+    agregarTarea(tarea);
+  }
+
+  function mostrarAlerta(mensaje, tipo, referencia) {
+    const alertaPrevia = document.querySelector('.alerta');
+
+    if (alertaPrevia) {
+      alertaPrevia.remove();
+    }
+
+    const alerta = document.createElement('DIV');
+    alerta.classList.add('alerta', tipo);
+    alerta.textContent = mensaje;
+    referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+    setTimeout(() => {
+      alerta.remove();
+    }, 5000);
+  }
+
+  function agregarTarea(tarea) {
+    // TODO
   }
 })();
