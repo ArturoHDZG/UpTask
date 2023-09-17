@@ -4,7 +4,7 @@ namespace Model;
 
 use Model\ActiveRecord;
 
-class Proyecto extends ActiveRecord
+class Tarea extends ActiveRecord
 {
   protected static $tabla = 'tareas';
   protected static $columnasDB = ['id', 'nombre', 'estado', 'proyectoId'];
