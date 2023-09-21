@@ -4,7 +4,10 @@
 .dashboard {
   background-color: v.$grisClaro;
 
-  .principal { flex: 1; }
+  .principal {
+    flex: 1;
+    overflow: auto;
+  }
 
   .contenido {
     padding: 2rem;
@@ -28,6 +31,6 @@
 
   @include m.tablet {
     display: flex;
-    height: 90vh;
+    height: 94vh;
   }
 }
