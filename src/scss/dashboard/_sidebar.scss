@@ -2,16 +2,57 @@
 @use 'base/mixins' as m;
 
 .sidebar {
-  display: none;
   background-color: v.$indigo;
-  padding: 2rem;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition-property: opacity;
+  transition-duration: 500ms;
 
-  @include m.tablet { display: block; }
+  &.mostrar {
+    height: 100%;
+    padding: 2rem;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / .90);
 
-  h2 {
-    color: v.$blanco;
-    margin: 0;
-    text-align: center;
+    @include m.tablet { display: none; }
+  }
+
+  &.ocultar { opacity: 0; }
+
+  @include m.tablet {
+    background-color: v.$indigo;
+    height: 100%;
+    padding: 2rem;
+    opacity: 1;
+  }
+
+  .contenedor-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      color: v.$blanco;
+      margin: 0;
+      text-align: center;
+    }
+
+    .cerrar-menu {
+      display: flex;
+      justify-content: center;
+      height: 3rem;
+      width: 3rem;
+
+      img {
+        &:hover { cursor: pointer; }
+      }
+    }
   }
 
   .sidebar-nav {
