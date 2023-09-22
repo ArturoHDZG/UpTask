@@ -17,9 +17,9 @@ This is the code repository for the "UpTask" project created by ArturoHDZG.
 - **MySQL**
   - *Apache*
 
-## Recent Updates (2023/07/29)
+## Recent Updates (2023/09/21)
 
-- Project Started
+- Use Virtual DOM for first time
 
 ## Installation Guide
 
