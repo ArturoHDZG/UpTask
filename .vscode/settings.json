@@ -5,6 +5,7 @@
     "cssnano",
     "fileinfo",
     "imagenes",
+    "jsdelivr",
     "mbstring",
     "Modernizr",
     "mysqli",
@@ -15,6 +16,8 @@
     "sanitizar",
     "Sanitizar",
     "separacion",
+    "Swal",
+    "sweetalert",
     "telefono",
     "uptask",
     "webp"
