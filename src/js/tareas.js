@@ -186,8 +186,27 @@
     actualizarTarea(tarea);
   }
 
-  function actualizarTarea(tarea) {
-    console.log(tarea);
+  async function actualizarTarea(tarea) {
+    const { estado, id, nombre } = tarea;
+
+    const datos = new FormData();
+    datos.append('id', id);
+    datos.append('nombre', nombre);
+    datos.append('estado', estado);
+    datos.append('proyectoId', obtenerProyecto());
+
+    try {
+      const url = '/api/task/edit';
+
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        body: datos
+      });
+
+      const resultado = await respuesta.json();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function obtenerProyecto() {
