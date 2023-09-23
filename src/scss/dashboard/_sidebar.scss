@@ -52,6 +52,8 @@
       img {
         &:hover { cursor: pointer; }
       }
+
+      @include m.tablet { display: none; }
     }
   }
 
@@ -61,8 +63,10 @@
     a {
       display: block;
       color: v.$blanco;
-      margin-bottom: 1.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
       padding: .7rem;
+      text-align: center;
       transition-property: background-color;
       transition-duration: 300ms;
 
@@ -70,6 +74,20 @@
         background-color: darken(v.$indigo, 20%);
         border-radius: .5rem;
       }
+
+      @include m.tablet {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
     }
+  }
+
+  .cerrar-ses-mob {
+    margin-top: 10rem;
+
+    .cerrar-ses { @include m.boton(v.$indigo, v.$blanco); }
+
+    @include m.tablet { display: none; }
   }
 }
