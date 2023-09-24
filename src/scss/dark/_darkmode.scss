@@ -17,11 +17,48 @@
   .nombre-pagina,
   footer p { color: darken(v.$grisClaro, 15%); }
 
-  .formulario .campo input { background-color: lighten($grisOscuro, 15%) !important; }
+  .formulario .campo input {
+    background-color: lighten($grisOscuro, 15%) !important;
+    color: v.$blanco;
 
-  .alerta.error { background-color: v.$blanco; }
+    &::placeholder { color: darken(v.$grisClaro, 30%); }
+  }
 
-  .barra-phone { background-color: darken($grisOscuro, 7%) !important; }
+  .alerta.error,
+  .alerta.success { background-color: v.$blanco; }
+
+  .sidebar {
+    @include m.tablet {
+      background-color: darken($grisOscuro, 5%) !important;
+    }
+
+    .sidebar-nav a {
+      &.activo, &:hover { background-color: v.$naranja !important; }
+    }
+  }
+
+  .barra-phone, .barra { background-color: darken($grisOscuro, 7%) !important; }
+
+  .barra {
+    p {
+      color: v.$grisClaro;
+      span { color: v.$naranja !important; }
+    }
+
+    a.logout {
+      @include m.boton(v.$naranja, v.$blanco);
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  }
+
+  .filtros {
+    background-color: lighten($grisOscuro, 10%)  !important;
+
+    h2, label { color: v.$blanco !important; }
+
+    input[type="radio"] { accent-color: v.$naranja !important; }
+  }
 
   .dashboard {
     .enlace {
@@ -29,13 +66,41 @@
 
       &:hover { color: darken(v.$grisClaro, 20%) !important; }
     }
+
+    .formulario input {
+      border: none !important;
+      color: v.$blanco;
+
+      &::placeholder { color: darken(v.$grisClaro, 30%); }
+    }
   }
 
-  .dashboard .contenido { background-color: $grisOscuro; }
+  .dashboard .contenido,
+  .principal { background-color: $grisOscuro; }
 
   .listado-proyectos .proyecto {
     background-color: lighten($grisOscuro, 20%) !important;
 
     &:hover { background-color: lighten($grisOscuro, 15%) !important; }
+  }
+
+  .listado-tareas .tarea {
+    background-color: lighten($grisOscuro, 15%) !important;
+    border: none;
+
+    p { color: v.$grisClaro; }
+  }
+
+  .formulario.nueva-tarea {
+    background-color: $grisOscuro !important;
+
+    input {
+      border: none !important;
+      color: v.$blanco;
+
+      &::placeholder { color: darken(v.$grisClaro, 30%); }
+    }
+
+    legend { color: v.$grisClaro; }
   }
 }
