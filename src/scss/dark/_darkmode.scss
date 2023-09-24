@@ -6,5 +6,36 @@
 
   body { background-color: $grisOscuro; }
 
-  .tagline { color: v.$blanco; }
+  .tagline,
+  .formulario label,
+  .login .acciones a,
+  .crear .acciones a,
+  .olvide .acciones a { color: v.$blanco; }
+
+  .desc-pagina,
+  .formulario .campo input,
+  .nombre-pagina,
+  footer p { color: darken(v.$grisClaro, 15%); }
+
+  .formulario .campo input { background-color: lighten($grisOscuro, 15%) !important; }
+
+  .alerta.error { background-color: v.$blanco; }
+
+  .barra-phone { background-color: darken($grisOscuro, 7%) !important; }
+
+  .dashboard {
+    .enlace {
+      color: v.$grisClaro !important;
+
+      &:hover { color: darken(v.$grisClaro, 20%) !important; }
+    }
+  }
+
+  .dashboard .contenido { background-color: $grisOscuro; }
+
+  .listado-proyectos .proyecto {
+    background-color: lighten($grisOscuro, 20%) !important;
+
+    &:hover { background-color: lighten($grisOscuro, 15%) !important; }
+  }
 }
