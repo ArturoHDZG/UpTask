@@ -32,13 +32,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Open+Sans&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/build/css/app.css">
-  <title>UpTask</title>
+  <title>UpTask <?php echo isset($title) ? " | " . $title : ""; ?></title>
 </head>
 
 <body>
 
   <?php echo $contenido; ?>
   <?php echo $script ?? ''; ?>
+
+  <footer>
+    <p class="copyright">UpTask <?php echo date('Y'); ?>&copy;</p>
+    <p class="copyright">Designed by Arturo Hernández Garza</p>
+  </footer>
 
 </body>
 

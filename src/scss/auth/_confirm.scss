@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.confirm {
+  .uptask { @include m.upTaskLogo (v.$indigo); }
+
+  .acciones {
+    justify-content: center;
+
+    a { color: v.$indigo; }
+  }
+}

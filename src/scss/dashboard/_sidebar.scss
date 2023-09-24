@@ -1,0 +1,93 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sidebar {
+  background-color: v.$indigo;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition-property: opacity;
+  transition-duration: 500ms;
+
+  &.mostrar {
+    height: 100%;
+    padding: 2rem;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / .90);
+
+    @include m.tablet { display: none; }
+  }
+
+  &.ocultar { opacity: 0; }
+
+  @include m.tablet {
+    background-color: v.$indigo;
+    height: 100%;
+    padding: 2rem;
+    opacity: 1;
+  }
+
+  .contenedor-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      color: v.$blanco;
+      margin: 0;
+      text-align: center;
+    }
+
+    .cerrar-menu {
+      display: flex;
+      justify-content: center;
+      height: 3rem;
+      width: 3rem;
+
+      img {
+        &:hover { cursor: pointer; }
+      }
+
+      @include m.tablet { display: none; }
+    }
+  }
+
+  .sidebar-nav {
+    margin-top: 5rem;
+
+    a {
+      display: block;
+      color: v.$blanco;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      padding: .7rem;
+      text-align: center;
+      transition-property: background-color;
+      transition-duration: 300ms;
+
+      &:hover, &.activo {
+        background-color: darken(v.$indigo, 20%);
+        border-radius: .5rem;
+      }
+
+      @include m.tablet {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+    }
+  }
+
+  .cerrar-ses-mob {
+    margin-top: 10rem;
+
+    .cerrar-ses { @include m.boton(v.$indigo, v.$blanco); }
+
+    @include m.tablet { display: none; }
+  }
+}

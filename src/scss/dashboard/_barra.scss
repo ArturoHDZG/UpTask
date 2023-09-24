@@ -1,0 +1,55 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra-phone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: v.$indigo;
+  padding: 2rem 4rem;
+
+  @include m.tablet { display: none; }
+
+  h1 {
+    color: v.$blanco;
+    margin: 0;
+  }
+
+  .menu {
+    img {
+      width: .8rem;
+
+      &:hover { cursor: pointer; }
+    }
+  }
+}
+
+.barra {
+  display: none;
+
+  p {
+    font-size: 1.4rem;
+    margin: 0;
+
+    span {
+      color: v.$indigo;
+      font-weight: 700;
+    }
+  }
+
+  .logout {
+    @include m.boton(darken(v.$indigo, 20%), v.$blanco);
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  @include m.tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: v.$blanco;
+    box-shadow: .1rem 1.2rem .9rem -1.3rem rgba( 0, 0, 0, .4);
+    padding: 1rem 2rem;
+  }
+}
