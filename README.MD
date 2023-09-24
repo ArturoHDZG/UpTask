@@ -1,8 +1,8 @@
 # UpTask
 
-![UpTask](https://user-images.githubusercontent.com/110303654/198379154-e89be033-364a-4d31-a582-0af4a3bf55c3.png)
+![UpTask](https://github.com/ArturoHDZG/UpTask/blob/main/src/img/Project-Github-Big.jpg)
 
-## Visit site [here](https://)
+## Visit site [here](https://uptask.ticocasas.domcloud.io)
 
 This is the code repository for the "UpTask" project created by ArturoHDZG.
 
