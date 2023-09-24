@@ -11,11 +11,11 @@
   <meta name="twitter:creator" content="@arturo_hdzg">
   <meta name="twitter:title" content="UpTask">
   <meta name="twitter:description" content="UpTask: Organizador de Proyectos y Tareas.">
-  <meta name="twitter:image" content="https://"> <!-- TODO -->
+  <meta name="twitter:image" content="https://uptask.ticocasas.domcloud.io/uptask-preview.jpg">
   <meta property="og:title" content="UpTask">
   <meta property="og:description" content="UpTask: Organizador de Proyectos y Tareas.">
-  <meta property="og:image" content="https://"> <!-- TODO -->
-  <meta property="og:url" content="https://"> <!-- TODO -->
+  <meta property="og:image" content="https://uptask.ticocasas.domcloud.io/uptask-preview.jpg">
+  <meta property="og:url" content="https://uptask.ticocasas.domcloud.io">
   <meta property="og:type" content="website">
   <meta name="keywords" content="Proyectos, organizador, tareas">
   <meta name="msapplication-TileColor" content="#2d89ef">
