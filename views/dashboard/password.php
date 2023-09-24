@@ -4,17 +4,17 @@
 
   <?php include_once __DIR__. '/../templates/alerts.php'; ?>
 
-  <a class="enlace" href="/password">Cambiar Contraseña</a>
+  <a class="enlace" href="/profile">Volver</a>
 
   <form class="formulario" method="POST">
 
     <div class="campo">
-      <label for="nombre">Nombre</label>
-      <input name="nombre" type="text" value="<?php echo $usuario->nombre; ?>" placeholder="Ej. Juan Pérez">
+      <label for="passActual">Contraseña Actual</label>
+      <input name="passActual" type="password" placeholder="Contraseña Actual">
     </div>
     <div class="campo">
-      <label for="email">Email</label>
-      <input name="email" type="email" value="<?php echo $usuario->email; ?>" placeholder="Ej. correo@dominio.com">
+      <label for="passNuevo">Nueva Contraseña</label>
+      <input name="passNuevo" type="password" placeholder="Nueva Contraseña">
     </div>
 
     <input type="submit" value="Guardar Cambios">

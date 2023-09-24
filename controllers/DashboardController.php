@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Proyecto;
+use Model\Usuario;
 
 class DashboardController
 {
@@ -75,9 +76,77 @@ class DashboardController
   {
     session_start();
     isAuth();
+    $alertas = [];
+
+    $usuario = Usuario::find($_SESSION['id']);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $usuario->sincronizar($_POST);
+      $alertas = $usuario->validarPerfil();
+
+      if (empty($alertas)) {
+        $existeUsuario = Usuario::where('email', $usuario->email);
+
+        if ($existeUsuario && $existeUsuario->id !== $usuario->id) {
+          Usuario::setAlerta('error', 'Email inválido o ya registrado');
+          $alertas = $usuario->getAlertas();
+
+        } else {
+          $usuario->guardar();
+
+          Usuario::setAlerta('success', 'Cambios Guardados con Éxito');
+          $alertas = $usuario->getAlertas();
+
+          $_SESSION['nombre'] = $usuario->nombre;
+        }
+      }
+    }
 
     $router->render('dashboard/profile', [
-      'title' => 'Perfil'
+      'title' => 'Perfil',
+      'usuario' => $usuario,
+      'alertas' => $alertas
+    ]);
+  }
+
+  public static function password(Router $router)
+  {
+    session_start();
+    isAuth();
+    $alertas = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $usuario = Usuario::find($_SESSION['id']);
+      $usuario->sincronizar($_POST);
+      $alertas = $usuario->NuevoPass();
+
+      if (empty($alertas)) {
+        $resultado = $usuario->comprobarPassword();
+
+        if ($resultado) {
+          $usuario->password = $usuario->passNuevo;
+
+          unset($usuario->passActual);
+          unset($usuario->passNuevo);
+          unset($usuario->password1);
+
+          $usuario->hashPassword();
+          $resultado = $usuario->guardar();
+
+          if ($resultado) {
+            Usuario::setAlerta('success', 'Contraseña Guardada');
+            $alertas = $usuario->getAlertas();
+          }
+        } else {
+          Usuario::setAlerta('error', 'Contraseña Incorrecta');
+          $alertas = $usuario->getAlertas();
+        }
+      }
+    }
+
+    $router->render('dashboard/password',[
+      'title' => 'Cambiar Contraseña',
+      'alertas' => $alertas
     ]);
   }
 }

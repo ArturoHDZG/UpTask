@@ -11,8 +11,8 @@ $router = new Router();
 
 // Login
 $router->get('/', [LoginController::class, 'login']);
-$router->post('/', [LoginController::class, 'login']);
 $router->get('/logout', [LoginController::class, 'logout']);
+$router->post('/', [LoginController::class, 'login']);
 
 // Creación de Cuentas
 $router->get('/create', [LoginController::class, 'create']);
@@ -33,9 +33,12 @@ $router->get('/confirm', [LoginController::class, 'confirm']);
 // Dashboard
 $router->get('/dashboard', [DashboardController::class, 'index']);
 $router->get('/new', [DashboardController::class, 'new']);
-$router->post('/new', [DashboardController::class, 'new']);
 $router->get('/project', [DashboardController::class, 'project']);
 $router->get('/profile', [DashboardController::class, 'profile']);
+$router->get('/password', [DashboardController::class, 'password']);
+$router->post('/new', [DashboardController::class, 'new']);
+$router->post('/profile', [DashboardController::class, 'profile']);
+$router->post('/password', [DashboardController::class, 'password']);
 
 //API tareas
 $router->get('/api/tasks', [TareaController::class, 'index']);
