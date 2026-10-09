@@ -2,9 +2,7 @@
 
 ![UpTask](https://github.com/ArturoHDZG/UpTask/blob/main/src/img/Project-Github-Big.jpg)
 
-## Visit site [here](https://uptask.ticocasas.domcloud.dev)
-
-This is the code repository for the "UpTask" project created by ArturoHDZG.
+This is an archived old code repository for the "UpTask" project created by ArturoHDZG.
 
 ## Technologies Used
 
